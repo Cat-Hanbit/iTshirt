@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snaplog</title>
+  <script src="https://cdn.jsdelivr.net/npm/exifr/dist/lite.umd.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Snaplog</h1>
+      <p>여행 사진 한 장으로 SNS 후기 완성</p>
+    </header>
+
+    <main>
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/*" hidden />
+        <div class="upload-placeholder" id="uploadPlaceholder">
+          <span class="upload-icon">📷</span>
+          <p>사진을 클릭하거나 끌어다 놓으세요</p>
+        </div>
+        <img id="preview" hidden />
+      </div>
+
+      <div class="form-group">
+        <label for="location">위치</label>
+        <div class="location-wrap">
+          <input type="text" id="location" placeholder="사진에서 위치를 불러오는 중..." />
+          <span class="location-status" id="locationStatus"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>톤 선택</label>
+        <div class="tone-buttons">
+          <button class="tone-btn active" data-tone="감성적">감성적</button>
+          <button class="tone-btn" data-tone="유머러스">유머러스</button>
+          <button class="tone-btn" data-tone="정보형">정보형</button>
+        </div>
+      </div>
+
+      <button class="generate-btn" id="generateBtn" disabled>후기 생성하기</button>
+
+      <div class="result-area" id="resultArea" hidden>
+        <div class="result-header">
+          <span>생성된 후기</span>
+          <div class="result-actions">
+            <button class="action-btn" id="copyBtn">복사</button>
+            <button class="action-btn" id="retryBtn">다시 생성</button>
+          </div>
+        </div>
+        <div class="result-text" id="resultText"></div>
+      </div>
+
+      <div class="error-area" id="errorArea" hidden>
+        <p id="errorText"></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
